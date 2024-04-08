@@ -70,7 +70,7 @@ public class BaseSetup {
         //Get Url from Property File
         String url = this.properties.getProperty("retail.ui.url");
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     public WebDriver getDriver() {

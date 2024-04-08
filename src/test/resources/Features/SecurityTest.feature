@@ -2,12 +2,12 @@
 Feature: Retail app security test feature.
 
   Background: Description about the background
-    Given User click on Sign In Button
+    Given User click on SignIn Button
 
   @Security_Positive
   Scenario Outline: Validate Valid user credential
     When User enter "<username>" and "<password>" and click on Login
-    Then User will see Account button on home page.
+    Then User will see Account button on home page
 
     Examples:
       | username                     | password    |
@@ -16,7 +16,7 @@ Feature: Retail app security test feature.
 
   @Security_Negative
   Scenario Outline: Validate Sign in with Invalid Credentials
-    When User enter "<username>" and "<password>" and click on Login
+    When User enter invalid "<username>" and valid "<password>" and click on Login
     Then validate error message "<errorMessage>"
 
     Examples:

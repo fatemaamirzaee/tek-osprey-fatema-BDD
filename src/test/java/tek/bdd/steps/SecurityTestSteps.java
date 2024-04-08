@@ -7,27 +7,35 @@ import org.junit.Assert;
 import tek.bdd.pages.HomePage;
 import tek.bdd.pages.LoginPage;
 
+import tek.bdd.utility.DataGeneratorUtility;
 import tek.bdd.utility.SeleniumUtilities;
 
 public class SecurityTestSteps extends SeleniumUtilities {
-    @Given("navigate to sign in page")
-    public void navigatetosigninpage() {
-       clickElement(HomePage.SING_IN_BUTTON);
 
+    @Given("User click on SignIn Button")
+    public void userClickOnSignInButton() {
+        clickElement(HomePage.SING_IN_BUTTON);
     }
-    @When("use valid username and password")
-    public void usevalidusernameandpassword() {
-        sendTextToElement(LoginPage.EMAIL_INPUT, "mohammad_osprey@tekschool.us");
-        sendTextToElement(LoginPage.PASSWORD_INPUT, "12345678Ab@");
+    @When("User enter {string} and {string} and click on Login")
+    public void userEnterCredentialsAndClickLogin(String username, String password) {
+        sendTextToElement(LoginPage.EMAIL_INPUT, username);
+        sendTextToElement(LoginPage.PASSWORD_INPUT, password);
+
         clickElement(LoginPage.LOGIN_BUTTON);
-
     }
-    @Then("validate user can successfully sign in and validate account button on home page")
-    public void validateaccountpage() {
+    @Then("User will see Account button on home page")
+    public void accountButtonWillDisplayOnHomePage() {
         boolean isDisplayed = isElementDisplayed(HomePage.ACCOUNT_LINK);
         Assert.assertTrue(isDisplayed);
-
     }
+    @When("User enter invalid {string} and valid {string} and click on Login")
+    public void userenterinvalidcredintials(String username, String password) {
+        sendTextToElement(LoginPage.EMAIL_INPUT, username);
+        sendTextToElement(LoginPage.PASSWORD_INPUT, password);
+
+        clickElement(LoginPage.LOGIN_BUTTON);
+    }
+
     @Then("validate error message {string}")
     public void validateErrorMessage(String expectedErrorMessage) {
         String actualError = getElementText(LoginPage.ERROR_MESSAGE);

@@ -5,7 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import tek.bdd.pages.AccountProfilePage;
+import tek.bdd.pages.HomePage;
 import tek.bdd.pages.LoginPage;
 import tek.bdd.pages.SignUpPage;
 import tek.bdd.utility.DataGeneratorUtility;
@@ -17,6 +19,10 @@ import java.util.Map;
 public class CreateAccountSteps extends SeleniumUtilities {
     private String generatedRandomEmail;
 
+    @Given("User click on Sign In Button")
+    public void user_click_on_sign_in_button() {
+        clickElement(HomePage.SING_IN_BUTTON);
+    }
     @Given("User click on Create Account")
     public void user_click_on_create_account() {
         clickElement(LoginPage.CREATE_ACCOUNT_LINK);
