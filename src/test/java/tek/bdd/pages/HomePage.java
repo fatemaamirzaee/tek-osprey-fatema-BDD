@@ -10,5 +10,5 @@ public class HomePage {
 
     public static final By SING_IN_BUTTON = By.id("signinLink");
 
-    public static final By ACCOUNT_LINK = By.linkText("Account");
+    public static final By ACCOUNT_LINK = By.id("accountLink");
 }

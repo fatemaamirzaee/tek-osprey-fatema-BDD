@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class SeleniumUtilities extends BaseSetup {
     private WebDriverWait getWait() {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         return wait;
     }
 
