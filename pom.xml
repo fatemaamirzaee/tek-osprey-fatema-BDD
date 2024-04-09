@@ -33,14 +33,17 @@
             <artifactId>selenium-java</artifactId>
             <version>4.18.1</version>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
             <version>4.18.1</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
+
     <build>
+
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -49,9 +52,13 @@
                 <configuration>
                     <includes>
                         <include>TestRunner.java</include>
+                        <!-- Force alphabetical order to have a reproducible build -->
+                        <runOrder>alphabetical</runOrder>
+                        <useSystemClassLoader>false</useSystemClassLoader>
                     </includes>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
@@ -79,5 +86,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
