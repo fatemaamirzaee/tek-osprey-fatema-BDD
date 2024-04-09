@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features ="classpath:Features",
         glue = "tek.bdd.steps",
         dryRun =false,
-        tags = "@Regression",
+        tags = "@Smoke",
         plugin = {
                 "pretty",
                 "html:target/html_report/index.html",
